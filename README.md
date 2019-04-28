@@ -1,0 +1,1 @@
+# vaspscript_myself
