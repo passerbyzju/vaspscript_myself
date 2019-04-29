@@ -1,0 +1,31 @@
+#/bin/bash
+# CoP_slab_22
+
+
+for i in *
+do
+cd $i/p11_right
+echo -e "\e[1:44m ********$i******** \e[0m"
+
+#generate POTCAR
+echo "********POTCAR********"
+(echo 1;echo 103)|vaspkit|grep "Recommended Potential"
+
+#use prepared file:INCAR,KPOINTS,vasp.pbs
+cp -r ~/2019_vasp/interchange_station/INCAR $PWD
+cp -r ~/2019_vasp/interchange_station/vasp.pbs $PWD
+
+# change the job's name
+
+name=$(pwd |awk -F "/" '{print $(NF-1)"_" $NF}')
+sed -i "2s/VASP/$name/g" vasp.pbs
+
+# generate KPOINTS
+(echo 1;echo 102;echo 1;echo 0.03)|vaspkit|grep "Written"
+
+# Check all by vaspkit
+echo "********Check all********"
+(echo 1;echo 109)|vaspkit|grep Needed
+cd $OLDPWD
+done
+

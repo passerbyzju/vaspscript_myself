@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep EFIELD INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"EFIELD=$1"/g" INCAR
+grep EFIELD INCAR

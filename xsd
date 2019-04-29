@@ -1,0 +1,10 @@
+#!/bin/bash
+for i in  *.xsd
+do 
+   mkdir $(basename $i .xsd)
+   (echo 1;echo 106;echo $i )|vaspkit|grep POSCAR
+   mv  POSCAR ./$(basename $i .xsd)
+   mv $i  ./$(basename $i .xsd)
+done
+
+#(echo 1; echo 106;echo *.xsd*)|vaspkit|grep POSCAR

@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep KPAR INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"KPAR=$1"/g" INCAR
+grep KPAR INCAR

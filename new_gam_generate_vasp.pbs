@@ -1,0 +1,13 @@
+#!/bin/bash
+#generate vasp.pbs
+cp -r ~/2019_vasp/interchange_station/new_vasp_gam.pbs  $PWD
+name=$(pwd |awk -F "/" '{print $(NF-1)"_" $NF}')
+sed -i "2s/VASP/$name/g" new_vasp_gam.pbs
+x=$1
+y=$2
+sed -i "4s/666/"$x"/g" new_vasp_gam.pbs
+sed -i "4s/888/"$y"/g" new_vasp_gam.pbs
+grep node new_vasp_gam.pbs
+z=$(grep NCORE INCAR |sed s/[[:space:]]//g)
+sed -i "s/"$z"/"NCORE=$3"/g" INCAR
+grep NCORE INCAR

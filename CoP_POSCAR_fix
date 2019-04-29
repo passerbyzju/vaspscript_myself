@@ -1,0 +1,13 @@
+#/bin/bash
+
+for i in *
+do
+cd $i/p11_right
+x=$(cat POSCAR|head -n 5|tail -n 1|awk '{print $NF}')
+y=$(echo "scale=6;$x-15"| tr -d $'\r'|bc)
+z=$(echo "scale=6;$y/2"| tr -d $'\r'|bc)
+
+#fix layers by height
+(echo 4;echo 403;echo 1;echo 0 -$z )|vaspkit|grep "Written"
+cd $OLDPWD
+done

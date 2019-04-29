@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep IBRION INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"IBRION=$1"/g" INCAR
+grep IBRION  INCAR

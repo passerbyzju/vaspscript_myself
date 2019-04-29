@@ -1,0 +1,8 @@
+#!/bin/bash
+for i in *
+do
+cd $i/p11_right;
+x=$(echo "$i" "" $(grep "E0" OSZICAR|tail -n 1|awk '{print $5}') $(area.py) $(cat POSCAR|head -n 7|tail -n 1))
+cd $OLDPWD
+echo $x >>surface_energy
+done

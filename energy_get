@@ -1,0 +1,4 @@
+#!/bin/bash
+x=$(grep E0 OSZICAR |tail -n 1|awk '{print $5}')
+y=$(pwd|awk -F "/" '{print   $(NF-1)"_"$NF}')
+echo  $y" "$x

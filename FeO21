@@ -1,0 +1,3 @@
+#!/bin/bash
+
+cd /public/home/Zhenggk/bioatom/O2/Fe_site_double/FeO21 && ls

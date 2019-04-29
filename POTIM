@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep POTIM INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"POTIM=$1"/g" INCAR
+grep POTIM INCAR

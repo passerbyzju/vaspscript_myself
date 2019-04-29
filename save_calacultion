@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cp POSCAR POSCAR-$1
+cp OUTCAR OUTCAR-$1
+cp OSZICAR OSZICAR-$1
+cp  vasprun.xml vasprun.xml-$1
+cp CONTCAR CONTCAR-$1
+cp  CONTCAR POSCAR
+cp INCAR  INCAR-$1
+cp KPOINTS KPOINTS-$1
+cp result result-$1

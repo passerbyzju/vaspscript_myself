@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep EDIFFG INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"EDIFFG=$1"/g" INCAR
+grep EDIFFG INCAR

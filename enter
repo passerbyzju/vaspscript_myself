@@ -1,0 +1,5 @@
+#!/bin/bash
+pwd_work=$(qstat -f $1 | grep "WORKDIR"|sed "s/.$//"|sed "s/PBS_O_WORKDIR=//")
+cd $pwd_work
+ls
+

@@ -1,0 +1,13 @@
+#/bin/bash
+for i in *
+do
+cd $i/p11_right
+(echo 4; echo 401; echo 1; echo 2 2 1 )|vaspkit
+mv POSCAR POSCAR_11_new
+mv SC*  POSCAR
+mv KPOINTS KPOINTS_11
+mv OSZICAR OSZICAR_11
+mv  OUTCAR OUTCAR_11
+
+cd $OLDPWD
+done

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+rm result
+touch result
+echo "***************">>result
+echo $(pwd|awk -F "/" '{print $(NF-1)"_"$NF}') >>result
+
+echo $(grep NSW INCAR) >> result
+echo $(grep NELM INCAR) >> result
+
+echo "***************">>result
+echo "The result of OSZICAR">>result
+echo "***************">>result
+tail OSZICAR >> result
+echo "***************">>result
+echo "The result of the OUTCAR">>result
+echo "***************">>result
+grep "reached required" OUTCAR >> result
+echo "***************">>result
+grep 'entropy T' OUTCAR|tail -n 5 >>result
+echo "***************">>result
+tail OUTCAR >>result
+cat result

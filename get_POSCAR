@@ -1,0 +1,4 @@
+#/bin/bash
+# copy CONTCAR,and change its name according to the dirctory when finish the calaculation
+name=$(echo $PWD|awk -F "/" '{print "POSCAR""_"$(NF-1)"_"$NF}')
+cp -r POSCAR $PWD/$name

@@ -1,0 +1,24 @@
+#!/bin/bash
+# to check the paremeters before the calacution
+echo ""
+echo "INCAR:"
+grep NCORE INCAR
+grep KPAR  INCAR
+grep ENCUT INCAR
+grep EDIFF INCAR
+grep NSW  INCAR
+grep NELM INCAR
+grep IBRION INCAR
+grep POTIM INCAR
+
+
+echo ""
+echo "KPOINTS:"
+tail -3 KPOINTS
+echo ""
+
+echo "vasp.pbs:"
+grep node vasp.pbs
+
+echo "vasp_gam.pbs"
+grep node vasp_gam.pbs

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+name=$(pwd |awk -F "/" '{print $(NF-1)"_" $NF}')
+sed -i "2s/VASP/$name/g" vasp.pbs

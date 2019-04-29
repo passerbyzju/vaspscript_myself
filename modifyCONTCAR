@@ -1,0 +1,4 @@
+#!/bin/bash
+#Converted by xsd2pos.py
+y=$(pwd|awk -F "/" '{ print $(NF-2)"_"$(NF-1)"_"$NF }')
+sed -i "s/Converted by xsd2pos.py/"$y"/g" CONTCAR

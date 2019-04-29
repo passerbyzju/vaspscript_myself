@@ -1,0 +1,4 @@
+#!/bin/bash
+cp INCAR POSCAR KPOINTS WAVE* CHG* ../barder
+cd ../barder
+sed -i "6 LAECHG=.TRUE." INCAR

@@ -1,0 +1,16 @@
+#/bin/bash
+# To convert the CONTCAR into CIF file,for the MS to bulid model
+
+
+echo " (4061) CONTCAR with Cartesian Coordinates"
+echo " (4062) CONTCAR with Fractional Coordinates"
+echo " (4063) CIF (CONTCAR.cif)"
+echo " (4064) ATAT (lat.in) (experimental)"
+echo " (4065) XCrySDen (CONTCAR.xsf)"
+echo " (4066) Quantum-Espresso (pwscf.in)"
+echo " (4067) Elk (elk.in)"
+echo " (4068) Siesta (CONTCAR.fdf)"
+echo " (4069) PDB Format (CONTCAR.pdb)"
+read -p "Please input your request:" number
+(echo 4;echo 406;echo 2;echo $number)|vaspkit|grep "Written"
+

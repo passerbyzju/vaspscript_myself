@@ -1,0 +1,5 @@
+#!/bin/bash
+x=$(grep NCORE INCAR |sed s/[[:space:]]//g)
+y=$1
+sed -i "s/"$x"/"NCORE=$1"/g" INCAR
+grep NCORE INCAR
