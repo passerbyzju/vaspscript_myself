@@ -1,3 +1,13 @@
+读取单个参数
 #!/bin/bash
 read -p "please input your goal: " y
 for i in $y; do echo $i " " $(grep '  without' $i/OUTCAR | tail -n 1| awk '{print $7}') ; done | sort -k 2
+
+
+读取文件
+#!/bin/bash
+cat $1 |while read line
+do
+        (echo $line| selener)
+done| sort -k 2
+
